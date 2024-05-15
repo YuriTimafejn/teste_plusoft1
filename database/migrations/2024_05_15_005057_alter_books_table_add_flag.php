@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('flag_books', function (Blueprint $table) {
-            $table->id();
-            $table->string('flag');
+        Schema::table('books', function (Blueprint $table) {
+            $table->foreignId('flag_id')->constrained('flag_books');
         });
     }
 
@@ -22,6 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('flag_books');
+        Schema::table('books', function (Blueprint $table) {
+            $table->dropForeign(['flag_id']);
+            $table->dropColumn('flag_id');
+        });
     }
 };
