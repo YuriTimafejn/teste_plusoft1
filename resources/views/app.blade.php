@@ -11,6 +11,17 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+@if(Session::has('success'))
+    <div class="alert alert-success" id="div-success-message">
+        {{ Session::get('success') }}
+    </div>
+@endif
+
+@if(Session::has('error'))
+    <div class="alert alert-danger" id="div-error-message">
+        {{ Session::get('error') }}
+    </div>
+@endif
 <div class="container">
     <!-- Command Section -->
     @yield('command-section')
@@ -19,7 +30,19 @@
     @yield('table-section')
 </div>
 
+@include('library.add-book-div')
+
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}" defer></script>
+<script>
+    setTimeout(function() {
+        document.getElementById('div-success-message').style.display = 'none';
+    }, {{ Session::get('timeout', 5000) }});
+
+    setTimeout(function() {
+        document.getElementById('div-error-message').style.display = 'none';
+    }, {{ Session::get('timeout', 5000) }});
+</script>
+@stack('scripts')
 </body>
 </html>
