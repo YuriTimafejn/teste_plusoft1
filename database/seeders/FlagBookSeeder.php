@@ -14,11 +14,13 @@ class FlagBookSeeder extends Seeder
     public function run(): void
     {
         $flags = ['Lido', 'Lendo', 'Quero ler', 'Abandonado', 'Relendo'];
+        $colors = ['success', 'primary', 'warning', 'danger', 'info'];
 
         // Loop through each flag and insert into the database
-        foreach ($flags as $flag) {
+        for($i=0; $i<count($flags); $i++) {
             DB::table('flag_books')->insert([
-                'flag' => $flag,
+                'flag' => $flags[$i],
+                'color' =>$colors[$i],
             ]);
         }
     }

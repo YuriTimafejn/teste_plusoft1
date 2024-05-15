@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('flag_books', function (Blueprint $table) {
             $table->id();
             $table->string('flag');
+            $table->string('color');
         });
     }
 
