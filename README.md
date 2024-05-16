@@ -109,8 +109,9 @@ DB_DATABASE=plusoft
 DB_USERNAME=sa
 DB_PASSWORD=Minha_Senha_Exemplo
 ```
-Salvando o arquivo, suba a migration com o comando:
+Salvando o arquivo, adicione a chave da aplicação e suba a migration com o comando:
 ```
+php artisan key:generate --ansi
 php artisan migrate
 ```
 [ *opcional* ] Para dar uma carga no banco de dados, inserindo alguns registros de exemplo na aplicação.
