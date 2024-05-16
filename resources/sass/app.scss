@@ -1,1 +1,20 @@
 @import 'bootstrap/scss/bootstrap';
+
+#addBookDiv {
+    display: none;
+    background-color: #d0d0d0;
+    width: 40%;
+    max-width: 50rem;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+    #addBookDiv {
+        width: 90%;
+        max-width: none;
+    }
+}

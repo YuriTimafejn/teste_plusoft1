@@ -6,9 +6,9 @@
     </div>
 
     <div id="flags" class="container m-3">
-        <span class="btn text-bg-dark m-2">Todos</span>
+        <a href="{{ route('flag.flag', 0) }}" class="btn text-bg-dark m-2">Todos</a>
         @foreach($flags as $flag)
-            <span class="btn text-bg-{{ $flag->color }} m-2">{{ $flag->flag }}</span>
+            <a href="{{ route('flag.flag', $flag->id) }}" class="btn text-bg-{{ $flag->color }} m-2">{{ $flag->flag }}</a>
         @endforeach
     </div>
 @endsection

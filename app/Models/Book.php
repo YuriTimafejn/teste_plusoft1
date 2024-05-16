@@ -12,7 +12,7 @@ class Book extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title','author','description'];
+    protected $fillable = ['title','author','note', 'flag_id'];
 
     public function flag(): BelongsTo
     {
