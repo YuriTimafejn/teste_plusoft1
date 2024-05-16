@@ -62,13 +62,11 @@
         })
 
         function editBook(book) {
-            console.log(book);
             document.getElementById('title').value = book.title;
             document.getElementById('author').value = book.author;
             document.getElementById('note').value = book.note;
 
-            const flagRadioButtons = document.getElementsByName('opt-flag');
-            console.log(flagRadioButtons);
+            const flagRadioButtons = document.getElementsByName('opt_flag');
             flagRadioButtons.forEach(radioButton => {
                 radioButton.checked = radioButton.value == book.flag_id;
             });
